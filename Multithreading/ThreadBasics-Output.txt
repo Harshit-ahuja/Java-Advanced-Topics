@@ -1,0 +1,19 @@
+run method executed automatically when new thread - Harshit's-Thread-3 was started
+run method executed automatically when new thread - Thread-0 was started
+run method executed automatically when new thread - Thread-1 was started
+Thread-0 - 1
+Thread-0 - 2
+Thread-0 - 3
+Thread-0 - 4
+Thread-0 - 5
+Thread-1 - 1
+Thread-1 - 2
+Thread-1 - 3
+Thread-1 - 4
+Harshit's-Thread-3 - 1
+Harshit's-Thread-3 - 2
+Harshit's-Thread-3 - 3
+Harshit's-Thread-3 - 4
+Harshit's-Thread-3 - 5
+Thread-1 - 5
+All 3 thread finished execution. Main thread continues...
