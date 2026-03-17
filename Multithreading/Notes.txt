@@ -1,0 +1,19 @@
+* Thread :
+    -> A thread is a lightweight sub-process, the smallest unit of execution in a program.
+	-> Multiple threads can run concurrently to utilize CPU efficiently.
+	-> In Java, threads are managed by JVM, and every Java program has a main thread by default.
+
+* Difference between Thread & Process :
+
+	    Process					|		      Thread
+    ----------------------------|---------------------------------------------------------
+	-> Heavyweight				|    ->  Lightweight
+	-> Own memory				|    ->  Shares memory with other threads in same process
+    -> Inter-process            |    ->  Communication is easier
+	   communication is costly	|	    (shared memory)
+                                |
+
+* Ways of Creating Threads in java  :
+	-> Extending the thread class
+	-> Implementing Runnable Interface
+	-> Creating threads using Lambda Expression (Java 8+)
