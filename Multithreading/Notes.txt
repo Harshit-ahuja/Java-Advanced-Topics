@@ -5,7 +5,7 @@
 
 * Difference between Thread & Process :
 
-	    Process					|		      Thread
+	    Process					|		   Thread
     ----------------------------|---------------------------------------------------------
 	-> Heavyweight				|    ->  Lightweight
 	-> Own memory				|    ->  Shares memory with other threads in same process
@@ -13,7 +13,93 @@
 	   communication is costly	|	    (shared memory)
                                 |
 
+
+* Mutithreading :
+	-> Multithreading means running multiple threads concurrently within a single program.
+	-> Hence, Instead of running tasks sequentially [Task1 → Task2 → Task3], 
+	   we can run task concurrently / parallelly [Task1 + Task2 + Task3]
+
+* Need of Multithreading :
+	-> Better CPU Utilization (As the CPU never stays idle)
+	-> Faster execution (As tasks run concurrently / parallelly)
+
+* Real World Multithreading examples :
+	-> Web Servers (Multiple Users)
+	-> Games
+	-> Chat Apps
+
+* Concurrency vs Parallelism
+	Concurrency :
+		-> Multiple tasks make progress by interleaving execution.
+		-> Uses context switching
+		-> Better for single core CPU / IO heavy tasks.
+		-> Tasks are not truly simultaneous.
+		-> Real world example : When one person is both cooking food and replying to messages.
+		   The person switches between the two tasks and both tasks progress together. 
+		   But the two tasks don't happen exactly at the same moment.
+	Parallelism :
+		-> Multiple tasks execute literally at the same time.
+		-> Uses multiple CPU cores.
+		-> Better for CPU heavy tasks.
+		-> No need for switching between those tasks.
+		-> Real world example : When one person cooks food and another person replies to the messages.
+		   The two tasks are truly simultaneous.
+	
+	|---------------------------------------------------------------------------------------|
+	| Note - The JVM creates and manages threads, but it does not decide how they run.      |
+	|		 The OS scheduler determines execution - it decides which threads run, when,    |
+    |        and on which CPU cores, based on factors like thread state (ready/blocked),	|
+	|		 priority, and CPU availability.												|
+	|		 As a result, concurrent or parallel execution of threads emerges automatically |
+	|		 depending on hardware (single core vs multi core) and the scheduling.			|
+	|_______________________________________________________________________________________|
+
+
 * Ways of Creating Threads in java  :
-	-> Extending the thread class
-	-> Implementing Runnable Interface
-	-> Creating threads using Lambda Expression (Java 8+)
+	1. Extending the thread class
+	2. Implementing Runnable Interface
+	3. Creating threads using Lambda Expression (Java 8+)
+
+  |--------------------------------------------------------------------------------------------------|
+  | Note - Implementing Runnable interface for creating threads is better than extending.            |
+  |		  the thread class.																			 |
+  |		  This is because Java doesn't support multiple inheritance and we can extend another class  |
+  |		  according to our needs while implementing runnable interface at the same time.             |
+  |		  Modern Java always prefer runnable interface or lambda for creating threads.               |
+  |__________________________________________________________________________________________________|
+
+
+* Thread Life Cycle
+	-> Thread life cycle in java describes the different states a thread goes through from creation to termination.
+	-> In java, this lifecycle is defined in the Thread.State enum.
+
+	1. NEW (Created) : 
+		Thread is created but not started yet. start() method has not been called. 
+		STATE = NEW.
+
+		|--------------------------|
+		| Thread t = new Thread(); |
+		|__________________________|
+	
+	2. RUNNABLE (Ready/Running) :
+		After calling start, thread moves to RUNNABLE. It is ready to run and waiting for CPU.
+		Java combines ready + running into one state.
+		STATE = RUNNABLE.
+
+		|-----------|
+		| t.start() |
+        |___________|
+	
+	3. BLOCKED :
+		Thread is waiting to acquire a lock (monitor).
+		Happens in synchronized blocks.
+		STATE = BLOCKED.
+
+		|--------------------------------------------------------------------|
+		| synchronized(obj) {											     |		
+    	|	 // if another thread holds lock, current thread becomes BLOCKED |
+		| } 																 |	
+        |____________________________________________________________________|
+	
+	4. WAITING :
+		
