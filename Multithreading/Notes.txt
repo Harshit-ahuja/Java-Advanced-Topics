@@ -102,4 +102,51 @@
         |____________________________________________________________________|
 	
 	4. WAITING :
-		
+		Thread waits indefinitely for another thread to perform an action.
+		Common methods - wait(), join()
+		STATE = WAITING
+
+		|-----------|
+		| t.wait();	|										     		
+    	| t.join(); |
+		|___________|  	
+
+	5. TIMED WAITING :
+		Thread waits for a specific amount of time.
+		Common methods - sleep(time), wait(time), join(time). 
+		Time is specified in ms.
+		STATE = TIMED WAITING 	
+
+		|---------------------|
+		| Thread.sleep(1000); |
+        |_____________________|
+
+	6. TERMINATED (Dead) :
+		Thread has finished execution or stopped.
+		STATE = TERMINATED
+
+
+	# Lifecycle	flow :
+		NEW → RUNNABLE → (BLOCKED / WAITING / TIMED WAITING) → RUNNABLE → TERMINATED
+
+	# Important methods :
+		start() - Starts thread
+		run() - Thread logic
+		sleep(ms) - Pause thread
+		join() - Wait for another thread
+		yield() - Suggest CPU switch
+
+
+
+* Thread Priority :
+	-> Thread priority is a hint to the OS thread scheduler about which thread should get
+	   CPU time first.
+	-> Each thread has a priority value. Higher priority means more chance of early execution
+	   and lower priority means less chance.
+	-> Java thread priority is not a guarantee, only a suggestion to the OS thread scheduler.
+	-> Thread priority in java ranges from 1 to 10.
+	-> 
+        
+	
+
+
