@@ -1,0 +1,4 @@
+Norm-Priority-Thread : Running
+Low-Priority-Thread : Running
+High-Priority-Thread : Running
+3 Threads do not necessarily run in the order of priorities defined
