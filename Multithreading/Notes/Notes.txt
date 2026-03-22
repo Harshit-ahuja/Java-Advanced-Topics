@@ -162,7 +162,30 @@
 	   So, final decision of thread scheduling depends primarily on the OS, with JVM providing hints (like priority).
 	   Hence, behaviour of thread priority may differ on different operating systems (Windows, Linux etc.)
 
-        
-	
+# Race Condition :
+	-> A race condition in Java threads occurs when multiple threads access 
+       and modify shared data concurrently, and the final result depends on 
+       the timing or order of execution rather than the intended logic.
+	-> Simply put, two or more threads are “racing” to use or modify the same resource.
+       Since thread scheduling is unpredictable, the outcome can be inconsistent or incorrect.
+	-> This happens because threads share the same heap memory, and operations like 
+       count++ are not atomic. They involve multiple steps (read → modify → write).
+       Due to unpredictable thread scheduling, a race condition may occur.
+	-> Example:
+       Two threads, Thread A and Thread B, access the shared variable `count` 
+       at the same time. Both threads read the value as 0. Each thread then 
+       increments the value to 1 independently. After that, both threads write 
+       the updated value back to memory.
+
+	   Since both write operations store the value 1, the final result becomes 1 
+       instead of the expected 2.
+
+	   Hence, the final result differs from what the logic intended.
+       This situation is called a race condition.
+
+# Thread Synchronization :
+	-> 
+	   
+
 
 
