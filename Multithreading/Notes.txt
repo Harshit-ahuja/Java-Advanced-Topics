@@ -144,8 +144,20 @@
 	-> Each thread has a priority value. Higher priority means more chance of early execution
 	   and lower priority means less chance.
 	-> Java thread priority is not a guarantee, only a suggestion to the OS thread scheduler.
-	-> Thread priority in java ranges from 1 to 10.
-	-> 
+	-> Thread priority in java ranges from 1 to 10 (default priority being 5).
+	-> Java provides 3 constant priorities 
+		1. Thread.MIN_PRIORITY = 1
+		2. Thread.NORM_PRIORITY = 5 (Default)
+		3. Thread.MAX_PRIORITY = 10
+	-> Java uses the underlying OS thread scheduler (not purely JVM controlled).
+	   Scheduler may consider
+	    -  Thread priority
+		-  CPU availability
+	    -  Thread state (Runnable, Waiting etc.)
+        -  OS scheduling algorithm (Round Robin etc.)
+	   So, final decision of thread scheduling depends primarily on the OS, with JVM providing hints (like priority).
+	   Hence, behaviour of thread priority may differ on different operating systems (Windows, Linux etc.)
+
         
 	
 
