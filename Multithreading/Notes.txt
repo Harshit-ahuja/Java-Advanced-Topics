@@ -1,9 +1,9 @@
-* Thread :
+# Thread :
     -> A thread is a lightweight sub-process, the smallest unit of execution in a program.
 	-> Multiple threads can run concurrently to utilize CPU efficiently.
 	-> In Java, threads are managed by JVM, and every Java program has a main thread by default.
 
-* Difference between Thread & Process :
+# Difference between Thread & Process :
 
 	    Process					|		   Thread
     ----------------------------|---------------------------------------------------------
@@ -14,21 +14,21 @@
                                 |
 
 
-* Mutithreading :
+# Mutithreading :
 	-> Multithreading means running multiple threads concurrently within a single program.
 	-> Hence, Instead of running tasks sequentially [Task1 → Task2 → Task3], 
 	   we can run task concurrently / parallelly [Task1 + Task2 + Task3]
 
-* Need of Multithreading :
+# Need of Multithreading :
 	-> Better CPU Utilization (As the CPU never stays idle)
 	-> Faster execution (As tasks run concurrently / parallelly)
 
-* Real World Multithreading examples :
+# Real World Multithreading examples :
 	-> Web Servers (Multiple Users)
 	-> Games
 	-> Chat Apps
 
-* Concurrency vs Parallelism
+# Concurrency vs Parallelism
 	Concurrency :
 		-> Multiple tasks make progress by interleaving execution.
 		-> Uses context switching
@@ -55,7 +55,7 @@
 	|_______________________________________________________________________________________|
 
 
-* Ways of Creating Threads in java  :
+# Ways of Creating Threads in java  :
 	1. Extending the thread class
 	2. Implementing Runnable Interface
 	3. Creating threads using Lambda Expression (Java 8+)
@@ -69,7 +69,7 @@
   |__________________________________________________________________________________________________|
 
 
-* Thread Life Cycle
+# Thread Life Cycle
 	-> Thread life cycle in java describes the different states a thread goes through from creation to termination.
 	-> In java, this lifecycle is defined in the Thread.State enum.
 
@@ -126,10 +126,10 @@
 		STATE = TERMINATED
 
 
-	# Lifecycle	flow :
+	* Lifecycle	flow :
 		NEW → RUNNABLE → (BLOCKED / WAITING / TIMED WAITING) → RUNNABLE → TERMINATED
 
-	# Important methods :
+	* Important methods :
 		start() - Starts thread
 		run() - Thread logic
 		sleep(ms) - Pause thread
@@ -138,7 +138,7 @@
 
 
 
-* Thread Priority :
+# Thread Priority :
 	-> Thread priority is a hint to the OS thread scheduler about which thread should get
 	   CPU time first.
 	-> Each thread has a priority value. Higher priority means more chance of early execution
