@@ -135,6 +135,11 @@
 		sleep(ms) - Pause thread
 		join() - Wait for another thread
 		yield() - Suggest CPU switch
+	
+	* start() can be called only once for a thread object. 
+	  This is because start() can only be called when the thread is in NEW state.
+	  If you call start() more than once on the same Thread object, java will throw
+	  IllegalThreadStateException (Runtime Exception).
 
 
 # Thread Priority :

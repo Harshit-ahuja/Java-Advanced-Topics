@@ -6,6 +6,9 @@ Runnable interface has one abstract method - 'run()' which needs to be overrided
 'run()' method should define the actual logic that the thread needs to perform.
 */
 
+/*
+Thread and Runnable are all part of java.lang package only, hence no explicit imports needed
+*/
 class MyRunnableTask implements Runnable {
 
     @Override
