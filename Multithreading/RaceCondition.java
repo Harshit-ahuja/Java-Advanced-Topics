@@ -16,8 +16,8 @@ public class RaceCondition {
             }
         };
 
-        Thread t1 = new Thread(task);
-        Thread t2 = new Thread(task);
+        Thread t1 = new Thread(task, "Thread-1");
+        Thread t2 = new Thread(task, "Thread-2");
 
         t1.start();
         t2.start();
@@ -31,15 +31,35 @@ public class RaceCondition {
 }
 
 /*
-Understanding of what may be happening under the hood :
+Cause of Race Condition :
 
-Thread A reads count = 0
-Thread B reads count = 0
-Thread A writes count = 1
-Thread B writes count = 1
+1. Multiple threads are modifying a shared variable (count) simultaneously.
+   count++ is not atomic; it has 3 steps:
+    -> Read current value
+    -> Increment
+    -> Write back
+   Thread can interleave in the middle of any of these steps, causing unpredictable 
+   final counts.
+
+2. Role of local CPU cache.
+    -> Threads may read count from their local CPU cache instead of main memory.
+    -> Cache can exacerbate the problem, because a thread may see a stale value.
+   Important: Local CPU cache of threads is not the root cause of race condition. The root
+   cause is still the non-atomic nature of count++ operation.
+   Cache just makes it more likely that threads see stale values temporarily, which can 
+   trigger updates lost faster.
+
+Example of operations that leads to Race Condition under the hood :
+
+Thread A reads count = 0 (A Interleaves)
+Thread B reads count = 0 (B Interleaves)
+Thread A writes count = 1 (A Interleaves)
+Thread B writes count = 1 
+(B doesn’t re-read after A writes, B already read count as 0, so it incremented the count to 1 
+and overwrites the value written by A, which was also 1)
 
 👉 Expected result: 2
 👉 Actual result: 1 (lost update)
 
-This is a race condition.
+This is race condition.
 */

@@ -184,8 +184,21 @@
        This situation is called a race condition.
 
 # Thread Synchronization :
-	-> 
-	   
+	-> In Java, multiple threads can run concurrently, but if they access the same data 
+	   without control, it can lead to inconsistent results.
+	-> Thread synchronization is the process of controlling access to shared resources 
+	   by multiple threads to avoid race conditions and ensure data consistency.
+	-> Synchronization ensures that only one thread can access the critical section at a time
+	   and it prevents multiple threads from entering a critical section simultaneously.
+	   Think of it as a traffic signal for threads.
+	
+	* Synchronized keyword : 
+	  Java provides the synchronized keyword to handle thread synchronization.
+	  It can be used in two ways :
+	  1. Synchronized method - A method can be declared synchronized. This ensures that 
+	     only one thread can execute the method on an object at a time.
+	  2. Synchronized block - Sometimes, you don’t want to lock the entire method, 
+	     only a part of the code. That’s when synchronized blocks are useful.
 
 
 
