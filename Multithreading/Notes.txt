@@ -137,7 +137,6 @@
 		yield() - Suggest CPU switch
 
 
-
 # Thread Priority :
 	-> Thread priority is a hint to the OS thread scheduler about which thread should get
 	   CPU time first.
