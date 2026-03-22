@@ -22,7 +22,11 @@ public class ThreadsWithRunnable {
         Thread t1 = new Thread(runnableTask);
         Thread t2 = new Thread(runnableTask);
 
+        // Custom thread name can be provided like this when creating threads with the help of Runnable interface
+        Thread t3 = new Thread(runnableTask, "Custom-Named-Thread");
+
         t1.start();
         t2.start();
+        t3.start();
     }
 }
