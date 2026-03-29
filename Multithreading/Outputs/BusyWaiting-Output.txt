@@ -1,0 +1,3 @@
+Consumer waiting for data...
+Producer set the flag!
+Consumer got the signal!

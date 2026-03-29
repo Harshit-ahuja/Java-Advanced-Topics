@@ -1,0 +1,30 @@
+Execution order is non-deterministic;
+yield() hints the scheduler to give other runnable threads of same priority a chance to execute,
+so alternate interleaving may be observed but alternation is not guaranteed.
+
+Thread-1 running
+Thread-2 running
+Thread-1 running
+Thread-2 running
+Thread-1 running
+Thread-2 running
+Thread-1 running
+Thread-2 running
+Thread-1 running
+Thread-2 running
+
+--------------------------------------------------------------------------------------------------
+Execution order is non-deterministic;
+yield() may allow higher priority threads to get more CPU time,
+so they may run more frequently, but this behavior is platform-dependent and not guaranteed.
+
+Thread-3 running
+Thread-3 running
+Thread-3 running
+Thread-3 running
+Thread-4 running
+Thread-3 running
+Thread-4 running
+Thread-4 running
+Thread-4 running
+Thread-4 running

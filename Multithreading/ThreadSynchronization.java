@@ -55,7 +55,7 @@ public class ThreadSynchronization {
         -> Exiting a synchronized block: the thread flushes all its updates to main memory, 
            making them visible to other threads.
     
-        This ensures that updates to thread by one thread are visible to other threads.
+        This ensures that updates by one thread are visible to other threads.
 
  5. Thread switching between Loop Iterations  :
         -> A thread does not hold the lock for the entire loop; it acquires the lock only when 

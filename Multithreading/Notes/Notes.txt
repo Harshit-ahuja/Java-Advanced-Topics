@@ -194,11 +194,103 @@
 	
 	* Synchronized keyword : 
 	  Java provides the synchronized keyword to handle thread synchronization.
-	  It can be used in two ways :
+	  In Java, every object has an intrinsic lock (monitor).
+	  'synchronized' blocks/methods acquire this lock before executing code.
+	  While a thread holds the lock, no other thread can enter another 'synchronized'
+	  block/method on the same object.
+	  
 	  1. Synchronized method - A method can be declared synchronized. This ensures that 
 	     only one thread can execute the method on an object at a time.
 	  2. Synchronized block - Sometimes, you don’t want to lock the entire method, 
 	     only a part of the code. That’s when synchronized blocks are useful.
+
+
+# Inter-Thread Communication :
+	-> Inter-thread communication is a mechanism by which multiple threads communicate 
+	   and coordinate with each other to avoid problems like busy waiting, race conditions, 
+	   and data inconsistency.
+
+       |-------------------------------------------------------------------------------------|
+	   |  * Busy Waiting (also called spinning) :                                            |
+	   |  - A situation when a thread keeps checking a condition repeatedly in a loop.       |
+	   |  - Problems : Wastes CPU, Reduces Performance, and is inefficient.                  |
+       |                                                                                     |
+	   |  * Data Inconsistency :                                                             |
+	   |  - Happens when multiple threads access and modify shared data concurrently without |  
+	   |    proper synchronization.                                                          |
+       |  - Problems : Leads to incorrect or unpredictable results.                          |
+       |                                                                                     |
+	   |  * Race Condition (As explained earlier) :                                          |
+	   |  - Occurs when two or more threads access shared data concurrently and the final    |
+	   |    outcome depends on the timing of their execution.                                |
+	   |  - Closely related to data inconsistency.                                           |
+       |_____________________________________________________________________________________|
+
+
+	-> Inter-Thread Communication is - "Efficient waiting & coordination between threads"
+	-> Key Methods (from Object Class) that helps in Inter-Thread Communication :
+
+	   |-----------------------------------------------------------------------------------|	
+       |  * wait() :                                                                       |
+	   |  - Causes current thread to release the lock & go into WAITING state.             |
+	   |  - It waits until another thread calls notify() or notifyAll().                   |
+	   |                                                                                   |
+       |  * notify() :                                									   |	
+	   |  - Wakes up one waiting thread.												   |	
+	   |  - That thread will compete to acquire the lock again.							   |
+	   |																				   |
+	   |  * notifyAll() :																   |
+	   |  - Wakes up all waiting threads.												   |	
+	   |  - Useful when multiple threads are waiting.  									   |
+       |___________________________________________________________________________________|
+	   
+	   * Important Points for the above methods :
+	   - These methods must be called inside synchronized blocks/methods.
+	   - These methods must be called on the same object whose lock is used.
+	   - If 3 threads (T1, T2, T3) are waiting on the same object’s monitor and another 
+	     thread (T4) calls notify(), only one thread would be woken up, but knowing which 
+		 thread would be woken is unpredictable and depends on the JVM scheduler, while 
+		 the remaining threads keep waiting.
+
+	-> Lifecycle flow when 2 threads are performing inter-thread communication :
+		
+		|------------------------------------------------|
+		| Thread enters synchronized block				 |
+		| Calls wait() → releases lock → goes to WAITING |
+		| Another thread calls notify()					 |
+		| Waiting thread moves to BLOCKED				 |
+		| When lock is free → resumes execution			 |	 
+	    |________________________________________________|
+		
+	
+# Sleep() method :
+	-> Method of 'Thread' class.
+	-> Can be called anywhere; does not require 'synchronized' block/method.
+	-> Unlike wait(), sleep() does not release any lock held by the thread.
+	-> Used to pause execution for a fixed time.
+	-> Throws Checked Exception (InterruptedException).
+
+# Yield() method :
+	-> yield() is a static method of the 'Thread' class.
+	-> Does not require 'synchronized' block/method to execute.
+	-> It is used to pause the currently executing thread temporarily and give other 
+	   threads a chance to execute.
+	-> The current thread voluntarily moves from RUNNING to RUNNABLE state.
+	-> It hints the scheduler that it is willing to give up CPU so that other runnable 
+	   threads of the same priority can execute, but it is not guaranteed to 
+	   happen.
+	-> Even if that happens, how long the CPU will be taken by another thread is entirely 
+	   up to the scheduler.
+	-> Unlike wait(), yield() does not interact with any object's monitor.
+
+# Join() method :
+    -> 
+
+
+
+
+
+	   
 
 
 

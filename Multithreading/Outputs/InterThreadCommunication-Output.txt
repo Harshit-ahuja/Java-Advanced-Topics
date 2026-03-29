@@ -1,0 +1,30 @@
+Odd-Thread validated loop condition
+Odd-Thread : 1
+Odd-Thread validated loop condition
+Odd-Thread waits at line 12
+Even-Thread validated loop condition
+Even-Thread : 2
+Even-Thread validated loop condition
+Even-Thread waits at line 22
+Odd-Thread : 3
+Odd-Thread validated loop condition
+Odd-Thread waits at line 12
+Even-Thread : 4
+Even-Thread validated loop condition
+Even-Thread waits at line 22
+Odd-Thread : 5
+Odd-Thread validated loop condition
+Odd-Thread waits at line 12
+Even-Thread : 6
+Even-Thread validated loop condition
+Even-Thread waits at line 22
+Odd-Thread : 7
+Odd-Thread validated loop condition
+Odd-Thread waits at line 12
+Even-Thread : 8
+Even-Thread validated loop condition
+Even-Thread waits at line 22
+Odd-Thread : 9
+Odd-Thread validated loop condition
+Odd-Thread waits at line 12
+Even-Thread : 10
