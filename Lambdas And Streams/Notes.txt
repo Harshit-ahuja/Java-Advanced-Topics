@@ -1,0 +1,28 @@
+------------------------------------------------------------------------------------
+                                    STREAMS
+------------------------------------------------------------------------------------
+
+-> A Stream is a sequence of elements supporting sequential and parallel aggregate 
+   operations.
+   It is not a data structure. It doesn't store data.
+   Instead, it conveys elements from a source (like a List or Set) through a pipeline 
+   of computational steps.
+-> Streams are designed to facilitate efficient data processing operations.
+-> Java Streams have two types of operations - 'Intermediate' and 'Terminal'
+-> Intermediate operations transform a stream into another stream. 
+   They are lazy, meaning they don't execute until a terminal operation is called.
+   Every intermediate operation returns a new Stream object.
+   Examples - map(), filter(), sorted(), distinct()
+-> Terminal operations produce a result or a side-effect (like printing). 
+   Once a terminal operation is performed, the stream is consumed and 
+   can no longer be used.
+   These return a non-stream result (like void, List, long, Optional) 
+   or nothing at all.
+   Examples - forEach(), collect(), count(), reduce()
+
+* Note - If you have a pipeline with 10 filter() calls but no terminal operation 
+         (like collect or forEach), Java will do zero work. It only starts the engine 
+         when the terminal operation is called. 
+
+
+
